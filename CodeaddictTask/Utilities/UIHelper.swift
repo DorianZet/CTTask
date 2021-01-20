@@ -8,7 +8,6 @@
 import UIKit
 
 enum UIHelper {
-    
     static func configureCollectionViewLayout(in view: UIView) -> UICollectionViewCompositionalLayout {
         let collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
             let size = NSCollectionLayoutSize(widthDimension: NSCollectionLayoutDimension.fractionalWidth(1), heightDimension: NSCollectionLayoutDimension.absolute(92))
@@ -18,7 +17,7 @@ enum UIHelper {
             let contentInsets = DeviceTypes.isSmallerIphone() ?NSDirectionalEdgeInsets(top: 9, leading: 16, bottom: 9, trailing: 16) : NSDirectionalEdgeInsets(top: 9, leading: 20, bottom: 9, trailing: 20)
             section.contentInsets = contentInsets
             section.interGroupSpacing = 9
-            // Supplementary header view setup
+
             let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(22))
             let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .topLeading)
             section.boundarySupplementaryItems = [sectionHeader]
@@ -27,5 +26,4 @@ enum UIHelper {
         
         return collectionViewLayout
     }
-    
 }

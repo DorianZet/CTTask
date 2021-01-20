@@ -8,7 +8,10 @@
 import UIKit
 
 class MainVCCell: UICollectionViewCell {
+    
     static let reuseID = "MainVCCell"
+    var imageTask: URLSessionDataTask?
+
     
     let avatarImageView = CTAvatarImageView(cornerRadius: .smooth)
     let repoTitleLabel = CTTitleLabel(textAlignment: .left, fontSize: 17, weight: .semibold)
@@ -26,7 +29,13 @@ class MainVCCell: UICollectionViewCell {
     }
     
     func set(repo: Repo) {
-        avatarImageView.downloadImage(from: repo.owner.avatarUrl)
+        imageTask = NetworkManager.shared.downloadImageTask(from: repo.owner.avatarUrl, completed: { (image) in
+            DispatchQueue.main.async {
+                self.avatarImageView.image = image
+            }
+        })
+        imageTask?.resume()
+
         repoTitleLabel.text = repo.name
         starCountLabel.text = "\(repo.stargazersCount)"
     }
@@ -65,7 +74,25 @@ class MainVCCell: UICollectionViewCell {
         ])
     }
     
+    func shrink(down: Bool) {
+        UIView.animate(withDuration: 0.15, delay: 0, options: .allowUserInteraction, animations: {
+            if down {
+                self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+            } else {
+                self.transform = .identity
+            }
+        })
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            shrink(down: isHighlighted)
+        }
+    }
+    
     override func prepareForReuse() {
+        super.prepareForReuse()
+        imageTask?.cancel()
         avatarImageView.image = Images.placeholder
     }
 }

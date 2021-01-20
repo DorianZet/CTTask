@@ -12,4 +12,7 @@ enum CTError: String, Error {
     case unableToComplete = "Unable to complete your request. Please check your internet connection."
     case invalidResponse = "Invalid response from the server. Please try again."
     case invalidData = "The data received from the server was invalid. Please try again."
+    case commitsEmpty = "The repo has no commits inside."
+    case wrongCommitsUrl = "Unable to get the commits because of the wrong URL address. Please try again."
+    case wrongRepoUrl = "Unable to get the repo info because of the wrong URL address. Please try again."
 }

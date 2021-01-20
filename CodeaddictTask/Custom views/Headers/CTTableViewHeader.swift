@@ -27,8 +27,6 @@ class CTTableViewHeader: UITableViewHeaderFooterView {
     func configureContents() {
         contentView.addSubview(titleLabel)
 
-        // Center the image vertically and place it near the leading
-        // edge of the view. Constrain its width and height to 50 points.
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),

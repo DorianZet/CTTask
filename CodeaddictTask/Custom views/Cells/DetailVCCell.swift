@@ -85,5 +85,4 @@ class DetailVCCell: UITableViewCell {
             view.isHidden = view.bounds.size.width == bounds.size.width
         }
     }
-    
 }

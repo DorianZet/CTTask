@@ -7,15 +7,14 @@
 
 import UIKit
 
-class CTDataLoadingVC: UIViewController { // GDDataLoadingVC is a superclass, which will be inherited by all VCs that load the data - FavoritesListVC, FollowerListVC and UserInfoVC.
+class CTDataLoadingVC: UIViewController {
     
     var containerLoadingView: UIView!
     var containerEmptyView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        //
     }
     
     func showLoadingView() {
@@ -47,12 +46,6 @@ class CTDataLoadingVC: UIViewController { // GDDataLoadingVC is a superclass, wh
             self.containerLoadingView = nil
         }
     }
-    
-//    func showEmptyStateView(with message: String, in view: UIView) {
-//        let emptyStateView = CTEmptyStateView(message: message)
-//        emptyStateView.frame = view.bounds
-//        view.addSubview(emptyStateView)
-//    }
     
     func showEmptyStateView(with message: String) {
         containerEmptyView = UIView(frame: view.bounds)

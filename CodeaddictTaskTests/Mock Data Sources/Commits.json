@@ -1,0 +1,239 @@
+[
+  {
+    "sha": "2aa6f43f3316df1e48df24295fd5e4ac0ff4aa07",
+    "node_id": "MDY6Q29tbWl0Mjg3MjU3NTI4OjJhYTZmNDNmMzMxNmRmMWU0OGRmMjQyOTVmZDVlNGFjMGZmNGFhMDc=",
+    "commit": {
+      "author": {
+        "name": "DorianZet",
+        "email": "62523613+DorianZet@users.noreply.github.com",
+        "date": "2020-12-27T10:35:11Z"
+      },
+      "committer": {
+        "name": "DorianZet",
+        "email": "62523613+DorianZet@users.noreply.github.com",
+        "date": "2020-12-27T10:35:11Z"
+      },
+      "message": "Code cleanup\n\n- move extensions to separate files\n- simplify logic in some functions\n- move repeating code into extensions",
+      "tree": {
+        "sha": "edfd7dbb87a4279751083a54a3eb7688cff687cd",
+        "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/git/trees/edfd7dbb87a4279751083a54a3eb7688cff687cd"
+      },
+      "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/git/commits/2aa6f43f3316df1e48df24295fd5e4ac0ff4aa07",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/2aa6f43f3316df1e48df24295fd5e4ac0ff4aa07",
+    "html_url": "https://github.com/DorianZet/Dude-Where-Are-My-Chips/commit/2aa6f43f3316df1e48df24295fd5e4ac0ff4aa07",
+    "comments_url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/2aa6f43f3316df1e48df24295fd5e4ac0ff4aa07/comments",
+    "author": {
+      "login": "DorianZet",
+      "id": 62523613,
+      "node_id": "MDQ6VXNlcjYyNTIzNjEz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62523613?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DorianZet",
+      "html_url": "https://github.com/DorianZet",
+      "followers_url": "https://api.github.com/users/DorianZet/followers",
+      "following_url": "https://api.github.com/users/DorianZet/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DorianZet/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DorianZet/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DorianZet/subscriptions",
+      "organizations_url": "https://api.github.com/users/DorianZet/orgs",
+      "repos_url": "https://api.github.com/users/DorianZet/repos",
+      "events_url": "https://api.github.com/users/DorianZet/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DorianZet/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "DorianZet",
+      "id": 62523613,
+      "node_id": "MDQ6VXNlcjYyNTIzNjEz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62523613?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DorianZet",
+      "html_url": "https://github.com/DorianZet",
+      "followers_url": "https://api.github.com/users/DorianZet/followers",
+      "following_url": "https://api.github.com/users/DorianZet/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DorianZet/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DorianZet/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DorianZet/subscriptions",
+      "organizations_url": "https://api.github.com/users/DorianZet/orgs",
+      "repos_url": "https://api.github.com/users/DorianZet/repos",
+      "events_url": "https://api.github.com/users/DorianZet/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DorianZet/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf",
+        "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf",
+        "html_url": "https://github.com/DorianZet/Dude-Where-Are-My-Chips/commit/0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf"
+      }
+    ]
+  },
+  {
+    "sha": "0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf",
+    "node_id": "MDY6Q29tbWl0Mjg3MjU3NTI4OjBhODM3NTk4MWM2MGVjNjljNGJhOWMzNDM0YmMxZDFjYzVkZTBjZGY=",
+    "commit": {
+      "author": {
+        "name": "Mateusz Zacharski",
+        "email": "62523613+DorianZet@users.noreply.github.com",
+        "date": "2020-11-27T12:50:41Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2020-11-27T12:50:41Z"
+      },
+      "message": "Update README.md",
+      "tree": {
+        "sha": "f69f52fa93df0b6e8ec0ce567c5dd805a3435fe7",
+        "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/git/trees/f69f52fa93df0b6e8ec0ce567c5dd805a3435fe7"
+      },
+      "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/git/commits/0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf",
+      "comment_count": 0,
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsBcBAABCAAQBQJfwPYhCRBK7hj4Ov3rIwAAdHIIADyOa3iPjThDaym5AK3c/A7q\naX56QI6/zfzzZrD8iWuaMDQ6wkdI8MYsN/Wn5Vw8AEEbBX/vGlbDrYehUt46FnEk\n8zuqENj1wlJ+fIbvMdekLx5wvPVaoi0/ttuqPLxZPAwIDFQSIL/T44VXSLOhEcMI\n8kfG52sym3iT/tieoGoHtJuq6MTh7bp6tUlMD/FocdwJfF+e0mAyguRGpUmv7q5I\ntda5qiOl8lA3GoQO2erp0sl0Aeo8qlMbn88UOS5PS+AYR0dgamhcKshajMl+4sKs\nk9BViGo+1PyzRqEBXxBInOj9a38fOd/NuX5ww+Sr7JhIcc84Zb0f2R7d4fwsCaI=\n=VWPW\n-----END PGP SIGNATURE-----\n",
+        "payload": "tree f69f52fa93df0b6e8ec0ce567c5dd805a3435fe7\nparent a56d25db298e1d6dda2b45c7c4a3708bd148f325\nauthor Mateusz Zacharski <62523613+DorianZet@users.noreply.github.com> 1606481441 +0100\ncommitter GitHub <noreply@github.com> 1606481441 +0100\n\nUpdate README.md"
+      }
+    },
+    "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf",
+    "html_url": "https://github.com/DorianZet/Dude-Where-Are-My-Chips/commit/0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf",
+    "comments_url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/0a8375981c60ec69c4ba9c3434bc1d1cc5de0cdf/comments",
+    "author": {
+      "login": "DorianZet",
+      "id": 62523613,
+      "node_id": "MDQ6VXNlcjYyNTIzNjEz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62523613?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DorianZet",
+      "html_url": "https://github.com/DorianZet",
+      "followers_url": "https://api.github.com/users/DorianZet/followers",
+      "following_url": "https://api.github.com/users/DorianZet/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DorianZet/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DorianZet/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DorianZet/subscriptions",
+      "organizations_url": "https://api.github.com/users/DorianZet/orgs",
+      "repos_url": "https://api.github.com/users/DorianZet/repos",
+      "events_url": "https://api.github.com/users/DorianZet/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DorianZet/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/19864447?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/web-flow",
+      "html_url": "https://github.com/web-flow",
+      "followers_url": "https://api.github.com/users/web-flow/followers",
+      "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+      "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+      "organizations_url": "https://api.github.com/users/web-flow/orgs",
+      "repos_url": "https://api.github.com/users/web-flow/repos",
+      "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/web-flow/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "a56d25db298e1d6dda2b45c7c4a3708bd148f325",
+        "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/a56d25db298e1d6dda2b45c7c4a3708bd148f325",
+        "html_url": "https://github.com/DorianZet/Dude-Where-Are-My-Chips/commit/a56d25db298e1d6dda2b45c7c4a3708bd148f325"
+      }
+    ]
+  },
+  {
+    "sha": "a56d25db298e1d6dda2b45c7c4a3708bd148f325",
+    "node_id": "MDY6Q29tbWl0Mjg3MjU3NTI4OmE1NmQyNWRiMjk4ZTFkNmRkYTJiNDVjN2M0YTM3MDhiZDE0OGYzMjU=",
+    "commit": {
+      "author": {
+        "name": "DorianZet",
+        "email": "62523613+DorianZet@users.noreply.github.com",
+        "date": "2020-11-27T12:40:42Z"
+      },
+      "committer": {
+        "name": "DorianZet",
+        "email": "62523613+DorianZet@users.noreply.github.com",
+        "date": "2020-11-27T12:40:42Z"
+      },
+      "message": "Remove model logic from view controllers to model class\n\n- remove model logic from PokerTableVC, ChooseWinnerVC and DrawVC to TableData class",
+      "tree": {
+        "sha": "6b0819f0c412f57ca030c8842796a7207e62f988",
+        "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/git/trees/6b0819f0c412f57ca030c8842796a7207e62f988"
+      },
+      "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/git/commits/a56d25db298e1d6dda2b45c7c4a3708bd148f325",
+      "comment_count": 0,
+      "verification": {
+        "verified": false,
+        "reason": "unsigned",
+        "signature": null,
+        "payload": null
+      }
+    },
+    "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/a56d25db298e1d6dda2b45c7c4a3708bd148f325",
+    "html_url": "https://github.com/DorianZet/Dude-Where-Are-My-Chips/commit/a56d25db298e1d6dda2b45c7c4a3708bd148f325",
+    "comments_url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/a56d25db298e1d6dda2b45c7c4a3708bd148f325/comments",
+    "author": {
+      "login": "DorianZet",
+      "id": 62523613,
+      "node_id": "MDQ6VXNlcjYyNTIzNjEz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62523613?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DorianZet",
+      "html_url": "https://github.com/DorianZet",
+      "followers_url": "https://api.github.com/users/DorianZet/followers",
+      "following_url": "https://api.github.com/users/DorianZet/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DorianZet/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DorianZet/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DorianZet/subscriptions",
+      "organizations_url": "https://api.github.com/users/DorianZet/orgs",
+      "repos_url": "https://api.github.com/users/DorianZet/repos",
+      "events_url": "https://api.github.com/users/DorianZet/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DorianZet/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "committer": {
+      "login": "DorianZet",
+      "id": 62523613,
+      "node_id": "MDQ6VXNlcjYyNTIzNjEz",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62523613?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/DorianZet",
+      "html_url": "https://github.com/DorianZet",
+      "followers_url": "https://api.github.com/users/DorianZet/followers",
+      "following_url": "https://api.github.com/users/DorianZet/following{/other_user}",
+      "gists_url": "https://api.github.com/users/DorianZet/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/DorianZet/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/DorianZet/subscriptions",
+      "organizations_url": "https://api.github.com/users/DorianZet/orgs",
+      "repos_url": "https://api.github.com/users/DorianZet/repos",
+      "events_url": "https://api.github.com/users/DorianZet/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/DorianZet/received_events",
+      "type": "User",
+      "site_admin": false
+    },
+    "parents": [
+      {
+        "sha": "9848f4fa326cf75d27261ab312bca3e526206b73",
+        "url": "https://api.github.com/repos/DorianZet/Dude-Where-Are-My-Chips/commits/9848f4fa326cf75d27261ab312bca3e526206b73",
+        "html_url": "https://github.com/DorianZet/Dude-Where-Are-My-Chips/commit/9848f4fa326cf75d27261ab312bca3e526206b73"
+      }
+    ]
+  }
+]

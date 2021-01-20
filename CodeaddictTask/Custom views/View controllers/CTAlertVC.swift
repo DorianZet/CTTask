@@ -54,7 +54,7 @@ class CTAlertVC: UIViewController {
     }
     
     func configureTitleLabel() {
-        titleLabel.text = alertTitle ?? "Something went wrong"
+        titleLabel.text = alertTitle ?? "Oops!"
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),

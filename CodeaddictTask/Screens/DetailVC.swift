@@ -14,14 +14,16 @@ class DetailVC: CTDataLoadingVC {
     var viewOnlineButton = CTButton(backgroundColor: .systemGray6, title: "VIEW ONLINE", cornerRadius: .verySmooth, font: UIFont.systemFont(ofSize: 15, weight: .semibold))
     var tableView = UITableView(frame: .zero, style: .grouped)
     var shareRepoButton = CTButton(backgroundColor: .systemGray6, title: "", cornerRadius: .smooth, font: UIFont.systemFont(ofSize: 17, weight: .semibold))
+    let shareButtonContentView = ShareRepoButtonContentView(frame: .zero)
     
-    var repo: Repo!
+    var tableRepo: Repo!
+    var downloadedRepo: Repo?
     
     var commits: [Commit] = []
    
-    init(repo: Repo) { // now when we push the FollowerListVC, we can initialize it with the username. the initializer automatically sets the VC's username property and VC's title.
+    init(repo: Repo) {
         super.init(nibName: nil, bundle: nil)
-        self.repo = repo
+        self.tableRepo = repo
     }
     
     required init?(coder: NSCoder) {
@@ -30,7 +32,7 @@ class DetailVC: CTDataLoadingVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true) // this gets rid of a bug with navbar when transitioning between this VC and searchVC by dragging your finger from the left edge of the screen.
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.tintColor = .white
     }
     
@@ -41,32 +43,31 @@ class DetailVC: CTDataLoadingVC {
         configureUILayout()
         configureTableView()
         configureButtons()
-        getCommits(from: repo)
-        configureHeaderViewAndRepoTitleLabel()
+        getRepoAndRepoCommits(from: tableRepo.url)
     }
     
     func configureButtons() {
-        let contentView = ShareRepoButtonContentView(frame: .zero)
-        shareRepoButton.addSubview(contentView)
-        
-        tutaj dodaj auto layout dla contentView w shareRepoButton
-        
+        shareButtonContentView.isUserInteractionEnabled = false
         viewOnlineButton.addTarget(self, action: #selector(viewRepoOnlineTapped), for: .touchUpInside)
         shareRepoButton.addTarget(self, action: #selector(shareRepoTapped), for: .touchUpInside)
     }
     
     @objc func viewRepoOnlineTapped() {
-        let repoUrl = URL(string: repo.htmlUrl)
+        guard let downloadedRepo = downloadedRepo else { return }
+        
+        let repoUrl = URL(string: downloadedRepo.htmlUrl)
         presentSafariVC(with: repoUrl ?? URL(string: "https://github.com")!)
     }
     
     @objc func shareRepoTapped() {
-        let items: [Any] = ["\(repo.name)", URL(string: "\(repo.htmlUrl)")]
+        guard let downloadedRepo = downloadedRepo else { return }
+
+        let items: [Any] = ["\(downloadedRepo.name)", URL(string: "\(downloadedRepo.htmlUrl)") as Any]
         let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(ac, animated: true)
     }
     
-    func configureHeaderViewAndRepoTitleLabel() {
+    func configureHeaderViewAndRepoTitleLabel(with repo: Repo) {
         headerView.avatarImageView.downloadImage(from: repo.owner.avatarUrl)
         headerView.repoAuthorLabel.text = repo.owner.login
         headerView.starCountLabel.text = "Number of Stars (\(repo.stargazersCount))"
@@ -79,6 +80,7 @@ class DetailVC: CTDataLoadingVC {
     
     func configureUILayout() {
         view.addSubviews(headerView, viewOnlineButton, repoTitleLabel, shareRepoButton, tableView)
+        shareRepoButton.addSubview(shareButtonContentView)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -100,10 +102,14 @@ class DetailVC: CTDataLoadingVC {
             shareRepoButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -44),
             shareRepoButton.heightAnchor.constraint(equalToConstant: 50),
             
+            shareButtonContentView.centerXAnchor.constraint(equalTo: shareRepoButton.centerXAnchor),
+            shareButtonContentView.topAnchor.constraint(equalTo: shareRepoButton.topAnchor, constant: 14),
+            shareButtonContentView.bottomAnchor.constraint(equalTo: shareRepoButton.bottomAnchor, constant: -14),
+            
             tableView.topAnchor.constraint(equalTo: repoTitleLabel.bottomAnchor, constant: 39),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: shareRepoButton.topAnchor, constant: -24)
+            tableView.bottomAnchor.constraint(equalTo: shareRepoButton.topAnchor, constant: -24),
         ])
     }
     
@@ -121,12 +127,35 @@ class DetailVC: CTDataLoadingVC {
         tableView.register(CTTableViewHeader.self, forHeaderFooterViewReuseIdentifier: CTTableViewHeader.reuseIdentifier)
     }
     
-    func getCommits(from repo: Repo) {
+    func getRepoAndRepoCommits(from stringUrl: String) {
         showLoadingView()
-        NetworkManager.shared.getFirstThreeCommits(from: repo) { [weak self] (result) in
+        NetworkManager.shared.getRepo(fromUrlString: tableRepo.url) { [weak self] (result) in
             guard let self = self else { return }
             
-            self.dismissLoadingView()
+            switch result {
+            case .success(let repo):
+                self.downloadedRepo = repo
+                DispatchQueue.main.async {
+                    self.configureHeaderViewAndRepoTitleLabel(with: repo)
+                }
+                self.getCommits(from: repo)
+
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    self.dismissLoadingView()
+                }
+                self.presentGFAlertOnMainThread(title: "Oops!", message: error.rawValue, buttonTitle: "OK")
+            }
+        }
+    }
+    
+    func getCommits(from repo: Repo) {
+        NetworkManager.shared.getFirstThreeCommits(from: repo) { [weak self] (result) in
+            guard let self = self else { return }
+           
+            DispatchQueue.main.async {
+                self.dismissLoadingView()
+            }
             
             switch result {
             case .success(let commits):
@@ -141,6 +170,7 @@ class DetailVC: CTDataLoadingVC {
         }
     }
 }
+
 
 extension DetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -161,5 +191,4 @@ extension DetailVC: UITableViewDelegate, UITableViewDataSource {
         
         return headerView
     }
-    
 }

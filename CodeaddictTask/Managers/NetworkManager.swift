@@ -11,29 +11,27 @@ class NetworkManager {
     static let shared = NetworkManager()
     private let baseURL = "https://api.github.com/"
     let cache = NSCache<NSString, UIImage>()
-    static let numberOfObjectsFetched = 70
+    static let numberOfObjectsFetched = 50
     
     private init() {}
     
-    func getRepos(for query: String, page: Int, completed: @escaping (Result<[Repo], CTError>) -> Void) {
+    func getRepos(withSession session: URLSessionProtocol = URLSession(configuration: URLSessionConfiguration.ephemeral), for query: String, page: Int, completed: @escaping (Result<[Repo], CTError>) -> Void) {
         let endpoint = baseURL + "search/repositories?q=\(query)&per_page=\(NetworkManager.numberOfObjectsFetched)&page=\(page)"
         
         guard let url = URL(string: endpoint) else {
-            completed(.failure(.noSpacesAllowed)) // if url is nil, it's a failure case and we present an error message attached to that case.
+            completed(.failure(.noSpacesAllowed))
             return
         }
-        
-        let configuration = URLSessionConfiguration.ephemeral
-        
-        let task = URLSession(configuration: configuration).dataTask(with: url) { (data, response, error) in
-            if let _ = error { // that means "if the error exists...". if it doesn't 'error' will be nil, as it's an optional.
+                
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let _ = error {
                 completed(.failure(.unableToComplete))
-                return // if we get the error, we don't want the rest of the code to execute, so we return.
+                return
             }
             
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { // check if response is nil - and if it isn't, check if its status code is 200 (it means it's OK).
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                 completed(.failure(.invalidResponse))
-                return // if we get the error, we don't want the rest of the code to execute, so we return.
+                return
             }
             
             guard let data = data else {
@@ -43,29 +41,65 @@ class NetworkManager {
             
             do {
                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase // we convert the snake case (e.g. 'avatar_url') to camel case ('avatarUrl').
-                let reposResponse = try decoder.decode(ReposResponse.self, from: data) // we want an array of Followers, so we try to decode it. We want to create that array of type 'Follower' from 'data', which is above in 'guard let data = data' line above.
-                completed(.success(reposResponse.items)) // if all goes well, we get an array of Followers - we described that in the function parameters 'Result<[Follower]' - which goes for the success case.
-            } catch { // catching the error.
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let reposResponse = try decoder.decode(ReposResponse.self, from: data)
+                completed(.success(reposResponse.items))
+            } catch {
                 completed(.failure(.invalidData))
             }
         }
         
-        task.resume() // starts the network call.
+        task.resume()
     }
     
-    func downloadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
+    func getRepo(withSession session: URLSessionProtocol = URLSession(configuration: URLSessionConfiguration.ephemeral), fromUrlString urlString: String, completed: @escaping (Result<Repo, CTError>) -> Void) {
+        let endpoint = urlString
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.wrongRepoUrl))
+            return
+        }
+                
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+               let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let repo = try decoder.decode(Repo.self, from: data)
+                completed(.success(repo))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func downloadImageTask(from urlString: String, completed: @escaping (UIImage?) -> Void) -> URLSessionDataTask? {
         let cacheKey = NSString(string: urlString)
         
         if let image = cache.object(forKey: cacheKey) {
             completed(image)
-            print("Downloaded cache image")
-            return
+            return nil
         }
         
         guard let url = URL(string: urlString) else {
             completed(nil)
-            return
+            return nil
         }
         
         let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
@@ -83,28 +117,37 @@ class NetworkManager {
             DispatchQueue.main.async {
                 completed(image)
             }
-        }
+        } as URLSessionDataTask
         
-        task.resume()
+        return task
     }
     
-    func getFirstThreeCommits(from repo: Repo, completed: @escaping (Result<[Commit], CTError>) -> Void) {
+    func getFirstThreeCommits(withSession session: URLSessionProtocol = URLSession(configuration: URLSessionConfiguration.ephemeral), from repo: Repo, completed: @escaping (Result<[Commit], CTError>) -> Void) {
         let endpointNoSha = String(repo.commitsUrl.dropLast(6)) + "?per_page=3"
         guard let url = URL(string: String(endpointNoSha)) else {
-            completed(.failure(.noSpacesAllowed)) // if url is nil, it's a failure case and we present an error message attached to that case.
+            completed(.failure(.wrongCommitsUrl))
             return
         }
-        let configuration = URLSessionConfiguration.ephemeral
         
-        let task = URLSession(configuration: configuration).dataTask(with: url) { (data, response, error) in
-            if let _ = error { // that means "if the error exists...". if it doesn't 'error' will be nil, as it's an optional.
+        let task = session.dataTask(with: url) { (data, response, error) in
+            if let _ = error {
                 completed(.failure(.unableToComplete))
-                return // if we get the error, we don't want the rest of the code to execute, so we return.
+                return
             }
             
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else { // check if response is nil - and if it isn't, check if its status code is 200 (it means it's OK).
+            guard let response = response as? HTTPURLResponse else {
                 completed(.failure(.invalidResponse))
-                return // if we get the error, we don't want the rest of the code to execute, so we return.
+                return
+            }
+            
+            guard response.statusCode != 409 else {
+                completed(.failure(.commitsEmpty))
+                return
+            }
+            
+            guard response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
             }
             
             guard let data = data else {
@@ -114,14 +157,13 @@ class NetworkManager {
             
             do {
                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase // we convert the snake case (e.g. 'avatar_url') to camel case ('avatarUrl').
-                let commitsResponse = try decoder.decode([Commit].self, from: data) // we want an array of Followers, so we try to decode it. We want to create that array of type 'Follower' from 'data', which is above in 'guard let data = data' line above.
-                completed(.success(commitsResponse)) // if all goes well, we get an array of Followers - we described that in the function parameters 'Result<[Follower]' - which goes for the success case.
-            } catch { // catching the error.
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let commitsResponse = try decoder.decode([Commit].self, from: data)
+                completed(.success(commitsResponse))
+            } catch {
                 completed(.failure(.invalidData))
             }
         }
-        
-        task.resume() // starts the network call.
+        task.resume()
     }
 }

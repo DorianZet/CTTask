@@ -14,11 +14,12 @@ struct ReposResponse: Codable, Hashable {
 struct Repo: Codable, Hashable {
     let id = UUID()
     
-    private enum CodingKeys : String, CodingKey { case name, stargazersCount, commitsUrl, htmlUrl, owner }
+    private enum CodingKeys : String, CodingKey { case name, stargazersCount, commitsUrl, url, htmlUrl, owner }
     
     var name: String
     var stargazersCount: Int
     var commitsUrl: String
+    var url: String
     var htmlUrl: String
     var owner: RepoAuthor
 }

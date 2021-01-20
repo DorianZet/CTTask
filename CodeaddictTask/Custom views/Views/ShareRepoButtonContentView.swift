@@ -30,10 +30,10 @@ class ShareRepoButtonContentView: UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
+            shareImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             shareImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             shareImageView.heightAnchor.constraint(equalToConstant: 18),
             shareImageView.widthAnchor.constraint(equalToConstant: 18),
-            shareImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
            
             titleLabel.centerYAnchor.constraint(equalTo: shareImageView.centerYAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: shareImageView.trailingAnchor, constant: 9),

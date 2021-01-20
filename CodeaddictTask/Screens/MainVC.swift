@@ -10,18 +10,18 @@ import UIKit
 class MainVC: CTDataLoadingVC {
     
     enum Section {
-        case main // main section of our collection view. we create it in enum, because it's hashable (needs to be hashable for the diffableDataSource)
+        case main
     }
 
     var currentQuery = ""
     var repos: [Repo] = []
     var page = 1
     var isMoreRepos = true
-    var isSearching = false // a boolean which checks if we are in a search mode or just browse all the repos.
+    var isSearching = false
     var isLoadingMoreRepos = false
     
     var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Repo>! // Diffable Data Source has to know about the section where it should work (Section) and about our collection view items (Follower)
+    var dataSource: UICollectionViewDiffableDataSource<Section, Repo>!
     
     let searchController = UISearchController()
     
@@ -38,7 +38,7 @@ class MainVC: CTDataLoadingVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true) // this gets rid of a bug with navbar when transitioning between this VC and searchVC by dragging your finger from the left edge of the screen.
+        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.tintColor = .systemBlue
     }
     
@@ -53,18 +53,19 @@ class MainVC: CTDataLoadingVC {
     func configureCollectionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: UIHelper.configureCollectionViewLayout(in: view))
         collectionView.backgroundColor = .systemBackground
+        collectionView.delaysContentTouches = false
 
         view.addSubview(collectionView)
-        collectionView.delegate = self // now our VC "listens" to the collectionView and will execute code once it meets its requirements set in its extension.
+        collectionView.delegate = self
         collectionView.register(MainVCCell.self, forCellWithReuseIdentifier: MainVCCell.reuseID)
-        collectionView.register(SectionHeaderReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeaderReusableView.reuseIdentifier)
+        collectionView.register(CTCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CTCollectionViewHeader.reuseIdentifier)
     }
     
     func configureSearchController() {
         searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = "Search for a repo"
-        searchController.obscuresBackgroundDuringPresentation = false // now the collection view is not greyed-out when we activate the search bar.
-        navigationItem.searchController = searchController // setting search controller in the navigation controller.
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
     }
     
     func getRepos(query: String, page: Int) {
@@ -115,42 +116,29 @@ class MainVC: CTDataLoadingVC {
         dataSource.supplementaryViewProvider = { collectionView, kind, indexPath in
             guard kind == UICollectionView.elementKindSectionHeader else { return nil }
             
-            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderReusableView.reuseIdentifier, for: indexPath) as? SectionHeaderReusableView
+            let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CTCollectionViewHeader.reuseIdentifier, for: indexPath) as? CTCollectionViewHeader
             view?.titleLabel.text = "Repositories"
             return view
         }
     }
     
     func updateData(on repos: [Repo]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, Repo>() //
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Repo>()
         snapshot.appendSections([.main])
         snapshot.appendItems(repos)
         DispatchQueue.main.async {
             self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
-    
 }
 
 
 extension MainVC: UICollectionViewDelegate {
     
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        let offsetY = scrollView.contentOffset.y // the y offset that gets incremented the more we scroll down.
-//        let contentHeight = scrollView.contentSize.height // height of our content view (for example, if we had 3000 followers, the content view height would be thousands of points!)
-//        let height = scrollView.frame.height // height of our screen
-//
-//        if offsetY > contentHeight - height {
-//            guard isMoreRepos, isLoadingMoreRepos == false else { return } // execute the code below only if the user has more followers than 50 AND when loading more followers is NOT in a process.
-//            page += 1
-//            getRepos(query: currentQuery, page: page)
-//        }
-//    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y // the y offset that gets incremented the more we scroll down.
-        let contentHeight = scrollView.contentSize.height // height of our content view (for example, if we had 3000 followers, the content view height would be thousands of points!)
-        let height = scrollView.frame.height // height of our screen
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.height
         
         guard offsetY > contentHeight - height else { return }
         guard isMoreRepos, isLoadingMoreRepos == false else { return }
@@ -164,19 +152,8 @@ extension MainVC: UICollectionViewDelegate {
         let destVC = DetailVC(repo: tappedRepo)
         navigationController?.pushViewController(destVC, animated: true)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let activeArray = isSearching ? filteredFollowers : followers // if 'isSearching' is true, activeArray = filteredFollowers. if its false, activeArray = followers. it's easier to remember just as W?T:F.
-//        let follower = activeArray[indexPath.item]
-//
-//        let destVC = UserInfoVC()
-//        destVC.username = follower.login // passing the tapped follower's login to the 'username' property in destVC.
-//        destVC.delegate = self // FollowerListVC is now "listening" to the UserInfoVC
-//        destVC.isDogModeOn = isDogModeOn
-//        let navController = UINavigationController(rootViewController: destVC) // create the navigation controller for our destVC.
-//        present(navController, animated: true) // instead of just presenting destVC, show the navigation controller that our destVC is embedded in.
-//    }
 }
+
 
 extension MainVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -187,36 +164,8 @@ extension MainVC: UISearchBarDelegate {
         searchBar.endEditing(true)
         page = 1
         repos.removeAll()
-        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true) // scroll up to the first row of items.
+        collectionView.scrollToTheTopOfHeader()
         getRepos(query: searchBar.text!, page: page)
     }
 }
-
-//extension MainVC: UISearchResultsUpdating { // anytime we change the search results, it's letting us know that something has changed.
-////    func updateSearchResults(for searchController: UISearchController) {
-////        guard let filter = searchController.searchBar.text, !filter.isEmpty else { // our filter is the text in the search bar. once we have that filter, we want to check if it's not empty. if it is (whether by deleting the text or tapping the 'cancel' button), go back to the original state of collection view.
-////            filteredRepos.removeAll()
-////            updateData(on: repos)
-////            isSearching = false
-////            return
-////        }
-////
-////        isSearching = true
-////        filteredRepos = repos.filter { $0.login.lowercased().contains(filter.lowercased()) } // we are going through our 'followers' array and we are filtering out based on our 'filter' text. because we iterate through all the followers, '$0' is each follower. as we're going through the followers, we want to check their login, make it lowercased so casing is irrelevant when matching, and see if it contains our 'filter' text (also lowercased, for matching purposes).
-////        updateData(on: filteredRepos)
-////    }
-//
-//}
-
-//extension FollowerListVC: UserInfoVCDelegate {
-//    func didRequestFollowers(for username: String) {
-//        self.username = username // update our VC with new username from didRequestFollowers() method.
-//        title = username
-//        page = 1
-//        followers.removeAll() // reset the followers array
-//        filteredFollowers.removeAll()
-//        collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true) // scroll up to the first row of items.
-//        getFollowers(username: username, page: page)
-//    }
-//}
 

@@ -40,12 +40,11 @@ class CTAvatarImageView: UIImageView {
     }
     
     func downloadImage(from url: String) {
-        NetworkManager.shared.downloadImage(from: url) { [weak self] (image) in
-            guard let self = self else { return }
-            
+        let downloadTask = NetworkManager.shared.downloadImageTask(from: url) { (image) in
             DispatchQueue.main.async {
                 self.image = image
             }
         }
+        downloadTask?.resume()
     }
 }

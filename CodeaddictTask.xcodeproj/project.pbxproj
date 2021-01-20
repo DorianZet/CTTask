@@ -19,8 +19,6 @@
 		612BA51A25B059F400282B99 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA51925B059F400282B99 /* SceneDelegate.swift */; };
 		612BA52125B059F500282B99 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612BA52025B059F500282B99 /* Assets.xcassets */; };
 		612BA52425B059F500282B99 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612BA52225B059F500282B99 /* LaunchScreen.storyboard */; };
-		612BA52F25B059F500282B99 /* CodeaddictTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA52E25B059F500282B99 /* CodeaddictTaskTests.swift */; };
-		612BA53A25B059F500282B99 /* CodeaddictTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA53925B059F500282B99 /* CodeaddictTaskUITests.swift */; };
 		612BA55425B05A5600282B99 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA55325B05A5600282B99 /* MainVC.swift */; };
 		612BA55A25B05A7C00282B99 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA55925B05A7C00282B99 /* DetailVC.swift */; };
 		612BA57225B0632100282B99 /* CTTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA57125B0632100282B99 /* CTTitleLabel.swift */; };
@@ -42,19 +40,18 @@
 		612BA5F425B08AFC00282B99 /* RepoAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA5F325B08AFC00282B99 /* RepoAuthor.swift */; };
 		612BA5F925B08C7900282B99 /* CommitAuthor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA5F825B08C7900282B99 /* CommitAuthor.swift */; };
 		612BA60125B08D7800282B99 /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612BA60025B08D7800282B99 /* Commit.swift */; };
+		612C0A0825B70B00000550EE /* CTCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C0A0725B70B00000550EE /* CTCollectionViewHeader.swift */; };
+		612C0A1B25B71826000550EE /* CollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612C0A1A25B71826000550EE /* CollectionView+Ext.swift */; };
+		612C0A1F25B71FCE000550EE /* searchIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 612C0A1E25B71FCE000550EE /* searchIcon.png */; };
+		61327D8125B824AF00CAA662 /* NetworkManager+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61327D8025B824AF00CAA662 /* NetworkManager+Mock.swift */; };
+		61327DA925B829C900CAA662 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61327DA825B829C900CAA662 /* NetworkManagerTests.swift */; };
+		61327DBC25B82BBD00CAA662 /* Repos.json in Resources */ = {isa = PBXBuildFile; fileRef = 61327DBB25B82BBD00CAA662 /* Repos.json */; };
+		61327DD525B838DE00CAA662 /* Commits.json in Resources */ = {isa = PBXBuildFile; fileRef = 61327DD425B838DE00CAA662 /* Commits.json */; };
 		61F0D8A525B2020F0011FC68 /* CTEmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F0D8A425B2020F0011FC68 /* CTEmptyStateView.swift */; };
-		61F0D8B925B21E140011FC68 /* SectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F0D8B825B21E140011FC68 /* SectionHeaderReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		612BA52B25B059F500282B99 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 612BA50C25B059F400282B99 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 612BA51325B059F400282B99;
-			remoteInfo = CodeaddictTask;
-		};
-		612BA53625B059F500282B99 /* PBXContainerItemProxy */ = {
+		61327DA125B828C800CAA662 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 612BA50C25B059F400282B99 /* Project object */;
 			proxyType = 1;
@@ -78,12 +75,6 @@
 		612BA52025B059F500282B99 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		612BA52325B059F500282B99 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		612BA52525B059F500282B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		612BA52A25B059F500282B99 /* CodeaddictTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeaddictTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		612BA52E25B059F500282B99 /* CodeaddictTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeaddictTaskTests.swift; sourceTree = "<group>"; };
-		612BA53025B059F500282B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		612BA53525B059F500282B99 /* CodeaddictTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeaddictTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		612BA53925B059F500282B99 /* CodeaddictTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeaddictTaskUITests.swift; sourceTree = "<group>"; };
-		612BA53B25B059F500282B99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		612BA55325B05A5600282B99 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		612BA55925B05A7C00282B99 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		612BA57125B0632100282B99 /* CTTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTTitleLabel.swift; sourceTree = "<group>"; };
@@ -105,8 +96,16 @@
 		612BA5F325B08AFC00282B99 /* RepoAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoAuthor.swift; sourceTree = "<group>"; };
 		612BA5F825B08C7900282B99 /* CommitAuthor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitAuthor.swift; sourceTree = "<group>"; };
 		612BA60025B08D7800282B99 /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
+		612C0A0725B70B00000550EE /* CTCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTCollectionViewHeader.swift; sourceTree = "<group>"; };
+		612C0A1A25B71826000550EE /* CollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Ext.swift"; sourceTree = "<group>"; };
+		612C0A1E25B71FCE000550EE /* searchIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = searchIcon.png; path = ../../../searchIcon.png; sourceTree = "<group>"; };
+		61327D8025B824AF00CAA662 /* NetworkManager+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkManager+Mock.swift"; sourceTree = "<group>"; };
+		61327D9C25B828C800CAA662 /* CodeaddictTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodeaddictTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		61327DA025B828C800CAA662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61327DA825B829C900CAA662 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		61327DBB25B82BBD00CAA662 /* Repos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Repos.json; sourceTree = "<group>"; };
+		61327DD425B838DE00CAA662 /* Commits.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Commits.json; sourceTree = "<group>"; };
 		61F0D8A425B2020F0011FC68 /* CTEmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTEmptyStateView.swift; sourceTree = "<group>"; };
-		61F0D8B825B21E140011FC68 /* SectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeaderReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,14 +116,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		612BA52725B059F500282B99 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		612BA53225B059F500282B99 /* Frameworks */ = {
+		61327D9925B828C800CAA662 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -138,8 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				612BA51625B059F400282B99 /* CodeaddictTask */,
-				612BA52D25B059F500282B99 /* CodeaddictTaskTests */,
-				612BA53825B059F500282B99 /* CodeaddictTaskUITests */,
+				61327D9D25B828C800CAA662 /* CodeaddictTaskTests */,
 				612BA51525B059F400282B99 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -148,8 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				612BA51425B059F400282B99 /* CodeaddictTask.app */,
-				612BA52A25B059F500282B99 /* CodeaddictTaskTests.xctest */,
-				612BA53525B059F500282B99 /* CodeaddictTaskUITests.xctest */,
+				61327D9C25B828C800CAA662 /* CodeaddictTaskTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,24 +159,6 @@
 			path = CodeaddictTask;
 			sourceTree = "<group>";
 		};
-		612BA52D25B059F500282B99 /* CodeaddictTaskTests */ = {
-			isa = PBXGroup;
-			children = (
-				612BA52E25B059F500282B99 /* CodeaddictTaskTests.swift */,
-				612BA53025B059F500282B99 /* Info.plist */,
-			);
-			path = CodeaddictTaskTests;
-			sourceTree = "<group>";
-		};
-		612BA53825B059F500282B99 /* CodeaddictTaskUITests */ = {
-			isa = PBXGroup;
-			children = (
-				612BA53925B059F500282B99 /* CodeaddictTaskUITests.swift */,
-				612BA53B25B059F500282B99 /* Info.plist */,
-			);
-			path = CodeaddictTaskUITests;
-			sourceTree = "<group>";
-		};
 		612BA55825B05A5A00282B99 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +175,7 @@
 				612BA51925B059F400282B99 /* SceneDelegate.swift */,
 				612BA52025B059F500282B99 /* Assets.xcassets */,
 				612BA52225B059F500282B99 /* LaunchScreen.storyboard */,
+				612C0A1E25B71FCE000550EE /* searchIcon.png */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -246,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				612BA59125B0686300282B99 /* NetworkManager.swift */,
+				61327D8025B824AF00CAA662 /* NetworkManager+Mock.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -275,6 +249,7 @@
 				612BA5BE25B06FDF00282B99 /* UIViewController+Ext.swift */,
 				612BA5C625B0708C00282B99 /* UIView+Ext.swift */,
 				612B8C8A25B466F30072FEB8 /* TableView+Ext.swift */,
+				612C0A1A25B71826000550EE /* CollectionView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -318,10 +293,29 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		61327D9D25B828C800CAA662 /* CodeaddictTaskTests */ = {
+			isa = PBXGroup;
+			children = (
+				61327DB225B82B9C00CAA662 /* Mock Data Sources */,
+				61327DA825B829C900CAA662 /* NetworkManagerTests.swift */,
+				61327DA025B828C800CAA662 /* Info.plist */,
+			);
+			path = CodeaddictTaskTests;
+			sourceTree = "<group>";
+		};
+		61327DB225B82B9C00CAA662 /* Mock Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				61327DBB25B82BBD00CAA662 /* Repos.json */,
+				61327DD425B838DE00CAA662 /* Commits.json */,
+			);
+			path = "Mock Data Sources";
+			sourceTree = "<group>";
+		};
 		61F0D8AC25B218360011FC68 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				61F0D8B825B21E140011FC68 /* SectionHeaderReusableView.swift */,
+				612C0A0725B70B00000550EE /* CTCollectionViewHeader.swift */,
 				612B8C8F25B4793A0072FEB8 /* CTTableViewHeader.swift */,
 			);
 			path = Headers;
@@ -347,41 +341,23 @@
 			productReference = 612BA51425B059F400282B99 /* CodeaddictTask.app */;
 			productType = "com.apple.product-type.application";
 		};
-		612BA52925B059F500282B99 /* CodeaddictTaskTests */ = {
+		61327D9B25B828C800CAA662 /* CodeaddictTaskTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 612BA54125B059F500282B99 /* Build configuration list for PBXNativeTarget "CodeaddictTaskTests" */;
+			buildConfigurationList = 61327DA525B828C800CAA662 /* Build configuration list for PBXNativeTarget "CodeaddictTaskTests" */;
 			buildPhases = (
-				612BA52625B059F500282B99 /* Sources */,
-				612BA52725B059F500282B99 /* Frameworks */,
-				612BA52825B059F500282B99 /* Resources */,
+				61327D9825B828C800CAA662 /* Sources */,
+				61327D9925B828C800CAA662 /* Frameworks */,
+				61327D9A25B828C800CAA662 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				612BA52C25B059F500282B99 /* PBXTargetDependency */,
+				61327DA225B828C800CAA662 /* PBXTargetDependency */,
 			);
 			name = CodeaddictTaskTests;
 			productName = CodeaddictTaskTests;
-			productReference = 612BA52A25B059F500282B99 /* CodeaddictTaskTests.xctest */;
+			productReference = 61327D9C25B828C800CAA662 /* CodeaddictTaskTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		612BA53425B059F500282B99 /* CodeaddictTaskUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 612BA54425B059F500282B99 /* Build configuration list for PBXNativeTarget "CodeaddictTaskUITests" */;
-			buildPhases = (
-				612BA53125B059F500282B99 /* Sources */,
-				612BA53225B059F500282B99 /* Frameworks */,
-				612BA53325B059F500282B99 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				612BA53725B059F500282B99 /* PBXTargetDependency */,
-			);
-			name = CodeaddictTaskUITests;
-			productName = CodeaddictTaskUITests;
-			productReference = 612BA53525B059F500282B99 /* CodeaddictTaskUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -395,11 +371,7 @@
 					612BA51325B059F400282B99 = {
 						CreatedOnToolsVersion = 12.3;
 					};
-					612BA52925B059F500282B99 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 612BA51325B059F400282B99;
-					};
-					612BA53425B059F500282B99 = {
+					61327D9B25B828C800CAA662 = {
 						CreatedOnToolsVersion = 12.3;
 						TestTargetID = 612BA51325B059F400282B99;
 					};
@@ -419,8 +391,7 @@
 			projectRoot = "";
 			targets = (
 				612BA51325B059F400282B99 /* CodeaddictTask */,
-				612BA52925B059F500282B99 /* CodeaddictTaskTests */,
-				612BA53425B059F500282B99 /* CodeaddictTaskUITests */,
+				61327D9B25B828C800CAA662 /* CodeaddictTaskTests */,
 			);
 		};
 /* End PBXProject section */
@@ -432,20 +403,16 @@
 			files = (
 				612BA52425B059F500282B99 /* LaunchScreen.storyboard in Resources */,
 				612BA52125B059F500282B99 /* Assets.xcassets in Resources */,
+				612C0A1F25B71FCE000550EE /* searchIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		612BA52825B059F500282B99 /* Resources */ = {
+		61327D9A25B828C800CAA662 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		612BA53325B059F500282B99 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				61327DD525B838DE00CAA662 /* Commits.json in Resources */,
+				61327DBC25B82BBD00CAA662 /* Repos.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +424,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				612BA5D225B072EB00282B99 /* CTDataLoadingVC.swift in Sources */,
-				61F0D8B925B21E140011FC68 /* SectionHeaderReusableView.swift in Sources */,
 				612BA5F925B08C7900282B99 /* CommitAuthor.swift in Sources */,
 				612BA59225B0686300282B99 /* NetworkManager.swift in Sources */,
 				612BA57225B0632100282B99 /* CTTitleLabel.swift in Sources */,
@@ -467,6 +433,7 @@
 				612B8C9D25B494B20072FEB8 /* ShareRepoButtonContentView.swift in Sources */,
 				612BA5C725B0708C00282B99 /* UIView+Ext.swift in Sources */,
 				612BA60125B08D7800282B99 /* Commit.swift in Sources */,
+				61327D8125B824AF00CAA662 /* NetworkManager+Mock.swift in Sources */,
 				612BA5BF25B06FDF00282B99 /* UIViewController+Ext.swift in Sources */,
 				612B8C9525B487AB0072FEB8 /* CTBlueLabel.swift in Sources */,
 				612BA5F425B08AFC00282B99 /* RepoAuthor.swift in Sources */,
@@ -474,10 +441,12 @@
 				612B8C8B25B466F30072FEB8 /* TableView+Ext.swift in Sources */,
 				612BA5E325B0741F00282B99 /* CTAlertContainerView.swift in Sources */,
 				612BA5A325B06B2700282B99 /* CTError.swift in Sources */,
+				612C0A0825B70B00000550EE /* CTCollectionViewHeader.swift in Sources */,
 				612BA5B925B06EB700282B99 /* CTSmallImageView.swift in Sources */,
 				612BA51825B059F400282B99 /* AppDelegate.swift in Sources */,
 				612B8C8625B43E280072FEB8 /* DetailVCCell.swift in Sources */,
 				612BA59B25B06A5F00282B99 /* UIHelper.swift in Sources */,
+				612C0A1B25B71826000550EE /* CollectionView+Ext.swift in Sources */,
 				612B8C8125B43CA10072FEB8 /* CTCellNumberLabel.swift in Sources */,
 				612BA55A25B05A7C00282B99 /* DetailVC.swift in Sources */,
 				612BA55425B05A5600282B99 /* MainVC.swift in Sources */,
@@ -492,34 +461,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		612BA52625B059F500282B99 /* Sources */ = {
+		61327D9825B828C800CAA662 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				612BA52F25B059F500282B99 /* CodeaddictTaskTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		612BA53125B059F500282B99 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				612BA53A25B059F500282B99 /* CodeaddictTaskUITests.swift in Sources */,
+				61327DA925B829C900CAA662 /* NetworkManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		612BA52C25B059F500282B99 /* PBXTargetDependency */ = {
+		61327DA225B828C800CAA662 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 612BA51325B059F400282B99 /* CodeaddictTask */;
-			targetProxy = 612BA52B25B059F500282B99 /* PBXContainerItemProxy */;
-		};
-		612BA53725B059F500282B99 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 612BA51325B059F400282B99 /* CodeaddictTask */;
-			targetProxy = 612BA53625B059F500282B99 /* PBXContainerItemProxy */;
+			targetProxy = 61327DA125B828C800CAA662 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -667,7 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MZacharski.CodeaddictTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -687,14 +643,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MZacharski.CodeaddictTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
-		612BA54225B059F500282B99 /* Debug */ = {
+		61327DA325B828C800CAA662 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 58PCABA652;
@@ -713,10 +668,9 @@
 			};
 			name = Debug;
 		};
-		612BA54325B059F500282B99 /* Release */ = {
+		61327DA425B828C800CAA662 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 58PCABA652;
@@ -732,46 +686,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CodeaddictTask.app/CodeaddictTask";
-			};
-			name = Release;
-		};
-		612BA54525B059F500282B99 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58PCABA652;
-				INFOPLIST_FILE = CodeaddictTaskUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MZacharski.CodeaddictTaskUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CodeaddictTask;
-			};
-			name = Debug;
-		};
-		612BA54625B059F500282B99 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 58PCABA652;
-				INFOPLIST_FILE = CodeaddictTaskUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.MZacharski.CodeaddictTaskUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = CodeaddictTask;
 			};
 			name = Release;
 		};
@@ -796,20 +710,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		612BA54125B059F500282B99 /* Build configuration list for PBXNativeTarget "CodeaddictTaskTests" */ = {
+		61327DA525B828C800CAA662 /* Build configuration list for PBXNativeTarget "CodeaddictTaskTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				612BA54225B059F500282B99 /* Debug */,
-				612BA54325B059F500282B99 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		612BA54425B059F500282B99 /* Build configuration list for PBXNativeTarget "CodeaddictTaskUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				612BA54525B059F500282B99 /* Debug */,
-				612BA54625B059F500282B99 /* Release */,
+				61327DA325B828C800CAA662 /* Debug */,
+				61327DA425B828C800CAA662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

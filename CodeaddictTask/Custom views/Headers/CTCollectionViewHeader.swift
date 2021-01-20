@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SectionHeaderReusableView: UICollectionReusableView {
+class CTCollectionViewHeader: UICollectionReusableView {
   static var reuseIdentifier: String {
-    return String(describing: SectionHeaderReusableView.self)
+    return String(describing: CTCollectionViewHeader.self)
   }
 
   lazy var titleLabel: UILabel = {
@@ -31,13 +31,10 @@ class SectionHeaderReusableView: UICollectionReusableView {
     addSubview(titleLabel)
 
     NSLayoutConstraint.activate([
+        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor)
-    ])
-    
-    NSLayoutConstraint.activate([
-      titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-      titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
+        titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor),
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)
     ])
   }
   
