@@ -9,6 +9,9 @@
   <p align="center">
     <h3 align ="center">A GitHub repository search app, created as an iOS recruitment task for Codeaddict.<h3>
 </p>
+      
+<!-- DESCRIPTION -->
+ 
 
 Connecting to the GitHub API, the app shows a collection view of repos that match the user's query. When tapping a repo cell, the user is taken to a detail view controller, where they can find the info about the repo's:
 - author (name and avatar image)
