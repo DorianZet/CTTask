@@ -17,19 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y7n-0a-SIh">
-                                <rect key="frame" x="103.5" y="349.5" width="207" height="207"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hkQ-1o-bdQ">
+                                <rect key="frame" x="93" y="339" width="228" height="228"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Y7n-0a-SIh" secondAttribute="height" multiplier="1:1" id="3vp-rc-OLJ"/>
+                                    <constraint firstAttribute="width" secondItem="hkQ-1o-bdQ" secondAttribute="height" multiplier="1:1" id="Hnp-u2-YJy"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Y7n-0a-SIh" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="a2b-aG-3U5"/>
-                            <constraint firstItem="Y7n-0a-SIh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dX8-Au-96Q"/>
-                            <constraint firstItem="Y7n-0a-SIh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="mCP-RH-rU0"/>
+                            <constraint firstItem="hkQ-1o-bdQ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="6lH-gp-OY6"/>
+                            <constraint firstItem="hkQ-1o-bdQ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ad9-js-4EZ"/>
+                            <constraint firstItem="hkQ-1o-bdQ" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.55" id="u80-IN-lWf"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,7 +39,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="searchIcon.png" width="512" height="512"/>
+        <image name="searchIcon" width="256" height="256"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

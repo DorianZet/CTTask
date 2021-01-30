@@ -162,6 +162,7 @@ extension MainVC: UISearchBarDelegate {
         dismissEmptyStateView()
         searchBar.resignFirstResponder()
         searchBar.endEditing(true)
+        isMoreRepos = true
         page = 1
         repos.removeAll()
         collectionView.scrollToTheTopOfHeader()
